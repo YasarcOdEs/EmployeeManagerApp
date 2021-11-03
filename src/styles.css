@@ -2,7 +2,12 @@
 @import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
 
 body {
-  background: #be5959;
+  background-image: url("/assets/img/atomaLogo.png"); /* The image used */
+  background-color: white; /* Used if the image is unavailable */
+  height: 500px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: 500px 300px; /* Resize the background image to cover the entire container */
 }
 
 a {
@@ -14,9 +19,9 @@ a {
 }
 
 .card {
-  border: none;
-  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
+  border: outset;
+  -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .05);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .05);
   margin-bottom: 30px;
 }
 

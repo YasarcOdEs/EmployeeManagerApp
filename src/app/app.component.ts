@@ -4,6 +4,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { Employee } from './employee';
 import { EmployeeService } from './employee.service';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'app-root',
@@ -34,12 +35,14 @@ export class AppComponent implements OnInit {
   }
 
   public onAddEmloyee(addForm: NgForm): void {
+    var message="Employee Added";
     document.getElementById('add-employee-form').click();
     this.employeeService.addEmployee(addForm.value).subscribe(
       (response: Employee) => {
         console.log(response);
         this.getEmployees();
-        addForm.reset();
+        addForm.reset(Message);
+        alert(message);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -49,10 +52,13 @@ export class AppComponent implements OnInit {
   }
 
   public onUpdateEmloyee(employee: Employee): void {
+    var message="Employee Updated";
+    console.log(employee)
     this.employeeService.updateEmployee(employee).subscribe(
       (response: Employee) => {
         console.log(response);
         this.getEmployees();
+        alert(message);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -61,7 +67,7 @@ export class AppComponent implements OnInit {
   }
 
   public onDeleteEmloyee(employeeId: number): void {
-    var message="Deleted succesfull"
+    var message="Deleted succesfull";
     this.employeeService.deleteEmployee(employeeId).subscribe(
       (response: void) => {
        console.log(response);
